@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'begin_screen.dart';
+
 class signiup_screen extends StatelessWidget {
   const signiup_screen({super.key});
 
@@ -20,7 +22,7 @@ class signiup_screen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Login screen",
+                    "Sign up ",
                     style: TextStyle(
                         color: Colors.black,
                         fontSize: 26,
@@ -70,21 +72,24 @@ class signiup_screen extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(7.5))),
                     onPressed: () {},
-                    child: Text("Login"),
+                    child: Text("Sign up"),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Don't have you account? "),
+                      Text("Don you have account? "),
                       TextButton(
                           onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => signiup_screen(),
-                                ));
+
+
+                            Navigator.of(context).pushAndRemoveUntil(
+                              MaterialPageRoute(
+                                builder: (context) => BeginScreen(),
+                              ),
+                                  (route) => false,
+                            );
                           },
-                          child: Text('Create new account')),
+                          child: Text('Login')),
                     ],
                   )
                 ]),

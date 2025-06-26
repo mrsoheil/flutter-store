@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:untitled1/signup_screen.dart';
+import 'package:untitled1/screen/begin_screen.dart';
+
+import 'package:untitled1/screen/signup_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -88,7 +90,11 @@ class _LoginScreenState extends State<LoginScreen> {
                             BorderSide(color: Color(0xFF2D96FF), width: 2),
                         borderRadius: BorderRadius.circular(15)),
                   )),
-              TextButton(onPressed: () {}, child: Text('Forget password')),
+              TextButton(
+                  onPressed: () {
+
+                  },
+                  child: Text('Forget password')),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     backgroundColor: Color(0xFF2D96FF),
@@ -97,6 +103,16 @@ class _LoginScreenState extends State<LoginScreen> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(7.5))),
                 onPressed: () {
+
+
+                  // Never come back to last page //
+                  Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(
+                      builder: (context) => BeginScreen(),
+                    ),
+                        (route) => false,
+                  );
+
 
                 },
                 child: Text("Login"),
